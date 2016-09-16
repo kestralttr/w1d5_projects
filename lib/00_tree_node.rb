@@ -2,9 +2,9 @@
 
 class PolyTreeNode
 
-  def initialize(value, parent = nil)
+  def initialize(value)
     @value = value
-    @parent = parent
+    @parent = nil
     @children = []
   end
 

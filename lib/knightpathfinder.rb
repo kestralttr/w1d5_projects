@@ -72,7 +72,27 @@ class KnightPathFinder
     new_positions
   end
 
+  def find_path(end_pos)
+    # debugger
+    end_node = @move_tree.bfs(end_pos)
+    arr = []
+    path = trace_path_back(end_node,arr)
+  end
+
+  def trace_path_back(node,arr)
+    #debugger
+    if node.parent == nil
+      arr << [node.value]
+    else
+      #path = [node.value]
+      arr << [node.value] + [trace_path_back(node.parent)]
+    end
+
+  end
+
 end
 
 n = KnightPathFinder.new([0,0])
-p n.move_tree
+
+
+p n.find_path([6,2])
